@@ -1,0 +1,21 @@
+{
+  "name": "Prolog Programming Environment",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu",
+  "features": {
+    "ghcr.io/devcontainers/features/common-utils:2": {}
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "arthurwang.vsc-prolog"
+      ],
+      "settings": {
+        "prolog.executablePath": "/usr/bin/swipl",
+        "prolog.linter": "swipl",
+        "prolog.languageServer": false
+      }
+    }
+  },
+  "postCreateCommand": "sudo apt-add-repository -y ppa:swi-prolog/stable && sudo apt-get update && sudo apt-get install -y swi-prolog",
+  "postStartCommand": "swipl --version"
+}
